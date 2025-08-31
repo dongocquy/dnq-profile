@@ -11,9 +11,9 @@ export default function ContactButton() {
   return (
     <button 
       onClick={handleClick}
-      className="px-4 py-2 bg-black border-2 border-transparent rounded-lg text-yellow-400 font-medium hover:text-yellow-300 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
+      className="px-4 py-2 bg-gray-900 border-2 border-transparent rounded-lg text-yellow-400 font-medium hover:text-yellow-300 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
       style={{
-        background: 'linear-gradient(black, black) padding-box, linear-gradient(45deg, #ff0000, #ff4444, #ff8888, #ff4444, #ff0000) border-box'
+        background: 'linear-gradient(gray-900, gray-900) padding-box, linear-gradient(45deg, #ff0000, #ff4444, #ff8888, #ff4444, #ff0000) border-box'
       }}
     >
       <span className="relative z-10">Contact</span>

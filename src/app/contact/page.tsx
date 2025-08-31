@@ -1,40 +1,72 @@
-import type { Metadata } from 'next';
-import ContactForm from './ContactForm';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Liên hệ - DNQ Profile',
-  description: 'Liên hệ với DNQ để trao đổi về dự án hoặc hợp tác',
-};
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiTwitter, FiClock, FiAward, FiUsers, FiGlobe, FiMessageSquare } from 'react-icons/fi';
+import ContactForm from './ContactForm';
+import { CommentSection } from '@/components/ui/Comment';
 
 export default function ContactPage() {
+  // Sample comments data
+  const [comments, setComments] = useState([
+    {
+      id: '1',
+      author: 'Nguyễn Văn A',
+      avatar: 'N',
+      content: 'Trang web rất đẹp và chuyên nghiệp! Tôi rất ấn tượng với thiết kế và hiệu ứng animation.',
+      timestamp: '2 giờ trước',
+      likes: 5,
+      isLiked: false,
+      replies: [
+        {
+          id: '1-1',
+          author: 'Đỗ Ngọc Quý',
+          avatar: 'Q',
+          content: 'Cảm ơn bạn đã ghé thăm! Tôi rất vui khi nhận được phản hồi tích cực.',
+          timestamp: '1 giờ trước',
+          likes: 3,
+          isLiked: true,
+        }
+      ]
+    },
+    {
+      id: '2',
+      author: 'Trần Thị B',
+      avatar: 'T',
+      content: 'Bạn có thể chia sẻ thêm về các dự án đã làm không? Tôi quan tâm đến việc hợp tác.',
+      timestamp: '1 ngày trước',
+      likes: 2,
+      isLiked: false,
+    },
+    {
+      id: '3',
+      author: 'Lê Văn C',
+      avatar: 'L',
+      content: 'Kỹ năng React và Next.js của bạn thật tuyệt vời! Có thể tư vấn thêm về việc học các công nghệ này không?',
+      timestamp: '3 ngày trước',
+      likes: 8,
+      isLiked: false,
+    }
+  ]);
+
   const contactInfo = [
     {
       title: 'Email',
-      value: 'dnq@example.com',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
+      value: 'dnq@gmail.com',
+      icon: <FiMail className="w-6 h-6" />,
+      color: 'from-yellow-400 to-purple-500'
     },
     {
       title: 'Phone',
       value: '+84 123 456 789',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-      ),
+      icon: <FiPhone className="w-6 h-6" />,
+      color: 'from-purple-500 to-pink-500'
     },
     {
       title: 'Địa chỉ',
       value: 'Hà Nội, Việt Nam',
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
+      icon: <FiMapPin className="w-6 h-6" />,
+      color: 'from-pink-500 to-yellow-400'
     },
   ];
 
@@ -42,103 +74,398 @@ export default function ContactPage() {
     {
       name: 'GitHub',
       url: 'https://github.com',
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-        </svg>
-      ),
+      icon: <FiGithub className="w-6 h-6" />,
+      color: 'from-gray-600 to-gray-800'
     },
     {
       name: 'LinkedIn',
       url: 'https://linkedin.com',
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      ),
+      icon: <FiLinkedin className="w-6 h-6" />,
+      color: 'from-blue-600 to-blue-800'
     },
     {
       name: 'Twitter',
       url: 'https://twitter.com',
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-        </svg>
-      ),
+      icon: <FiTwitter className="w-6 h-6" />,
+      color: 'from-blue-400 to-blue-600'
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    visible: { opacity: 1, scale: 1, y: 0 },
+    hover: { y: -8, scale: 1.02 },
+  };
+
+  // Comment handlers
+  const handleAddComment = (content: string) => {
+    const newComment = {
+      id: Date.now().toString(),
+      author: 'Khách',
+      avatar: 'K',
+      content,
+      timestamp: 'Vừa xong',
+      likes: 0,
+      isLiked: false,
+    };
+    setComments(prev => [newComment, ...prev]);
+  };
+
+  const handleLikeComment = (id: string) => {
+    setComments(prev => 
+      prev.map(comment => {
+        if (comment.id === id) {
+          return {
+            ...comment,
+            likes: comment.isLiked ? comment.likes - 1 : comment.likes + 1,
+            isLiked: !comment.isLiked,
+          };
+        }
+        if (comment.replies) {
+          return {
+            ...comment,
+            replies: comment.replies.map(reply => {
+              if (reply.id === id) {
+                return {
+                  ...reply,
+                  likes: reply.isLiked ? reply.likes - 1 : reply.likes + 1,
+                  isLiked: !reply.isLiked,
+                };
+              }
+              return reply;
+            }),
+          };
+        }
+        return comment;
+      })
+    );
+  };
+
+  const handleReplyComment = (id: string) => {
+    // In a real app, this would open a reply form
+    console.log('Reply to comment:', id);
+  };
+
+  const handleEditComment = (id: string, content: string) => {
+    setComments(prev => 
+      prev.map(comment => {
+        if (comment.id === id) {
+          return { ...comment, content };
+        }
+        if (comment.replies) {
+          return {
+            ...comment,
+            replies: comment.replies.map(reply => 
+              reply.id === id ? { ...reply, content } : reply
+            ),
+          };
+        }
+        return comment;
+      })
+    );
+  };
+
+  const handleDeleteComment = (id: string) => {
+    setComments(prev => 
+      prev.filter(comment => {
+        if (comment.id === id) return false;
+        if (comment.replies) {
+          return {
+            ...comment,
+            replies: comment.replies.filter(reply => reply.id !== id),
+          };
+        }
+        return true;
+      })
+    );
+  };
+
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Liên hệ
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Hãy liên hệ với tôi để trao đổi về dự án hoặc hợp tác
-          </p>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative">
+      {/* Global Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-900/20" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(147,51,234,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(236,72,153,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-800/30 to-gray-900/50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-purple-900/10 to-transparent" />
+      
+      {/* Hero Section */}
+      <div className="relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10"
+        >
+          <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-8"
+            >
+              <FiMail className="w-5 h-5 text-yellow-400 mr-2" />
+              <span className="text-yellow-400 font-medium">Liên hệ</span>
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+            >
+              Liên hệ với tôi
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed"
+            >
+              Hãy liên hệ để trao đổi về dự án hoặc cơ hội hợp tác
+            </motion.p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl font-semibold text-foreground mb-6">
-                Thông tin liên hệ
-              </h2>
-              <div className="space-y-4">
-                {contactInfo.map((info) => (
-                  <div key={info.title} className="flex items-center space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                      {info.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-foreground">{info.title}</h3>
-                      <p className="text-muted-foreground">{info.value}</p>
-                    </div>
-                  </div>
-                ))}
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex justify-center space-x-8 mb-12"
+            >
+              <div className="text-center">
+                <div className="text-3xl font-bold text-yellow-400">24/7</div>
+                <div className="text-gray-400">Sẵn sàng</div>
               </div>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-semibold text-foreground mb-6">
-                Mạng xã hội
-              </h2>
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-muted hover:bg-primary/10 rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-400">100%</div>
+                <div className="text-gray-400">Phản hồi</div>
               </div>
-            </div>
-
-            <div className="bg-card border border-border/40 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                Thời gian làm việc
-              </h3>
-              <div className="space-y-2 text-muted-foreground">
-                <p>Thứ 2 - Thứ 6: 9:00 - 18:00</p>
-                <p>Thứ 7: 9:00 - 12:00</p>
-                <p>Chủ nhật: Nghỉ</p>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-pink-400">EU</div>
+                <div className="text-gray-400">Thị trường</div>
               </div>
-            </div>
+            </motion.div>
           </div>
-
-          {/* Contact Form */}
-          <ContactForm />
-        </div>
+        </motion.div>
       </div>
+
+      {/* Main Content */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-10"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <motion.div
+              variants={cardVariants}
+              className="space-y-8"
+            >
+              {/* Contact Info Card */}
+              <div className="relative bg-gradient-to-br    rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-purple-500 rounded-xl flex items-center justify-center mr-4">
+                    <FiUsers className="w-6 h-6 text-gray-900" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-white">Thông tin liên hệ</h2>
+                </div>
+                
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => (
+                    <motion.div
+                      key={info.title}
+                      variants={itemVariants}
+                      className="flex items-center space-x-4 p-4 bg-white/10  rounded-xl   transition-all duration-300"
+                    >
+                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center text-gray-900`}>
+                        {info.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-medium text-white">{info.title}</h3>
+                        <p className="text-gray-300">{info.value}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              </div>
+
+              {/* Social Links Card */}
+              <div className="relative bg-gradient-to-br    rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
+                    <FiGlobe className="w-6 h-6 text-gray-900" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-white">Mạng xã hội</h2>
+                </div>
+                
+                <div className="flex space-x-4">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`w-14 h-14 bg-gradient-to-r ${social.color} rounded-xl flex items-center justify-center text-white hover:shadow-lg transition-all duration-300`}
+                      aria-label={social.name}
+                    >
+                      {social.icon}
+                    </motion.a>
+                  ))}
+                </div>
+
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              </div>
+
+              {/* Working Hours Card */}
+              <div className="relative bg-gradient-to-br    rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-yellow-400 rounded-xl flex items-center justify-center mr-4">
+                    <FiClock className="w-6 h-6 text-gray-900" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-white">Thời gian làm việc</h2>
+                </div>
+                
+                <div className="space-y-3 text-gray-300">
+                  <div className="flex justify-between items-center p-3 bg-white/10  rounded-lg">
+                    <span>Thứ 2 - Thứ 6</span>
+                    <span className="text-yellow-400 font-medium">9:00 - 18:00</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-white/10  rounded-lg">
+                    <span>Thứ 7</span>
+                    <span className="text-purple-400 font-medium">9:00 - 12:00</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-white/10  rounded-lg">
+                    <span>Chủ nhật</span>
+                    <span className="text-pink-400 font-medium">Nghỉ</span>
+                  </div>
+                </div>
+
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              </div>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div
+              variants={cardVariants}
+              className="relative"
+            >
+              <ContactForm />
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Comments Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.7 }}
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-10"
+      >
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-6">
+              <FiMessageSquare className="w-5 h-5 text-yellow-400 mr-2" />
+              <span className="text-yellow-400 font-medium">Bình luận</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Chia sẻ ý kiến của bạn
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Hãy để lại bình luận, góp ý hoặc câu hỏi. Tôi rất mong nhận được phản hồi từ bạn!
+            </p>
+          </motion.div>
+
+          <CommentSection
+            comments={comments}
+            onAddComment={handleAddComment}
+            onLike={handleLikeComment}
+            onReply={handleReplyComment}
+            onEdit={handleEditComment}
+            onDelete={handleDeleteComment}
+          />
+        </div>
+      </motion.div>
+
+      {/* Call to Action */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
+        className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-10"
+      >
+        <div className="relative overflow-hidden bg-gradient-to-r    rounded-3xl p-12 text-center">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-pink-500/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(212,175,55,0.1),transparent_50%)]" />
+          
+          <div className="relative z-10">
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-6"
+            >
+              <FiAward className="w-5 h-5 text-yellow-400 mr-2" />
+              <span className="text-yellow-400 font-medium">Hợp tác</span>
+            </motion.div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Sẵn sàng bắt đầu dự án?
+            </h2>
+            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+              Tôi luôn sẵn sàng lắng nghe ý tưởng của bạn và đưa ra những giải pháp tốt nhất cho dự án.
+            </p>
+            
+            <motion.a
+              href="mailto:dnq@gmail.com"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25"
+            >
+              <span>Gửi email ngay</span>
+              <FiMail className="w-5 h-5" />
+            </motion.a>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }

@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden group';
   
   const variants = {
-    primary: 'bg-gold-gradient text-black hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 hover:shadow-lg hover:scale-105 active:scale-95',
+    primary: 'bg-gold-gradient text-gray-900 hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 hover:shadow-lg hover:scale-105 active:scale-95',
     secondary: 'bg-red-gradient text-white hover:bg-gradient-to-r hover:from-red-700 hover:to-red-800 hover:shadow-lg hover:scale-105 active:scale-95',
     outline: 'border border-yellow-500/50 bg-transparent text-gold hover:bg-luxury-gradient hover:border-yellow-500 hover:shadow-md hover:scale-105 active:scale-95',
     ghost: 'hover:bg-yellow-500/10 hover:text-gold hover:shadow-sm hover:scale-105 active:scale-95',

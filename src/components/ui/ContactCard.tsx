@@ -52,9 +52,9 @@ export default function ContactCard({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   const variantClasses = {
-    default: 'bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-400/40 backdrop-blur-sm',
+    default: 'bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-400/40 ',
     minimal: 'bg-transparent border border-white/20',
-    glow: 'bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-400/40 backdrop-blur-sm shadow-lg shadow-red-500/10'
+    glow: 'bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-400/40  shadow-lg shadow-red-500/10'
   }
 
   return (

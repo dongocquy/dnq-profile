@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-yellow-500/20 bg-gradient-to-r from-black/95 via-purple-900/30 to-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60 animate-fade-in-up shadow-lg shadow-purple-500/20">
+    <header className="sticky top-0 z-50 w-full border-b border-yellow-500/20 bg-gradient-to-r from-gray-900/95 via-purple-900/30 to-gray-900/95  supports-[backdrop-filter]:bg-gray-900/60 animate-fade-in-up shadow-lg shadow-purple-500/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
             <Link href="/" className="flex items-center space-x-2 group">
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-yellow-400 via-gold to-yellow-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-150 group-hover:scale-110 group-hover:rotate-3 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse"></div>
-                <span className="text-black font-bold text-sm relative z-10">DNQ</span>
+                <span className="text-gray-900 font-bold text-sm relative z-10">DNQ</span>
               </div>
               <span className="font-bold text-xl text-gold group-hover:text-yellow-400 transition-colors duration-150">
                 {process.env.NEXT_PUBLIC_APP_NAME || 'DNQ Profile'}
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
               <Button 
                 variant="primary" 
                 size="sm"
-                className="bg-gradient-to-r from-yellow-400 via-gold to-yellow-600 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-purple-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 text-black relative overflow-hidden group"
+                className="relative bg-gradient-to-r from-yellow-400 via-purple-500 to-pink-500 hover:from-yellow-500 hover:via-purple-600 hover:to-pink-600 text-gray-900 font-bold px-4 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/50 text-gray-900 relative overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative z-10">Liên hệ</span>
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-black hover:bg-gradient-to-r hover:from-purple-500/20 hover:via-pink-500/20 hover:to-purple-600/20 p-2 rounded-lg text-gold hover:text-purple-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/30"
+            className="md:hidden inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-gray-900 hover:bg-gradient-to-r hover:from-purple-500/20 hover:via-pink-500/20 hover:to-purple-600/20 p-2 rounded-lg text-gold hover:text-purple-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/30"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
@@ -89,14 +89,14 @@ const Header: React.FC = () => {
                   {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <div className="md:hidden animate-fade-in-up">
-              <div className="px-2 pt-2 pb-3 space-y-1 border-t border-yellow-500/20 bg-gradient-to-b from-black/95 via-purple-900/20 to-black/95 backdrop-blur shadow-lg shadow-purple-500/20">
+              <div className="px-2 pt-2 pb-3 space-y-1 border-t border-yellow-500/20 bg-gradient-to-b from-gray-900/95 via-purple-900/20 to-gray-900/95  shadow-lg shadow-purple-500/20">
               <Navigation isMobile onItemClick={() => setIsMobileMenuOpen(false)} />
               <div className="px-3 py-2 space-y-2">
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button 
                     variant="primary" 
                     size="sm" 
-                    className="w-full bg-gradient-to-r from-yellow-400 via-gold to-yellow-600 hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-purple-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 text-black relative overflow-hidden group"
+                    className="relative bg-gradient-to-r from-yellow-400 via-purple-500 to-pink-500 hover:from-yellow-500 hover:via-purple-600 hover:to-pink-600 text-gray-900 font-bold px-4 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-purple-500/50 text-gray-900 relative overflow-hidden group"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative z-10">Liên hệ</span>

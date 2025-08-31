@@ -43,7 +43,7 @@ export default function FlipCard({ frontIcon, title, description, className = ''
       >
         {/* Front Side - Icon Only */}
         <div 
-          className="flip-card-front absolute w-full h-full backface-hidden flex items-center justify-center border-2 border-red-400/50 rounded-2xl group-hover:border-red-300/70 transition-colors duration-300"
+          className="flip-card-front absolute w-full h-full backface-hidden flex items-center justify-center rounded-2xl transition-colors duration-300"
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
@@ -66,7 +66,7 @@ export default function FlipCard({ frontIcon, title, description, className = ''
         
         {/* Back Side - Content */}
         <div 
-          className="flip-card-back absolute w-full h-full backface-hidden flex flex-col justify-center items-center text-center border-2 border-red-400/50 rounded-2xl group-hover:border-red-300/70 transition-colors duration-300"
+          className="flip-card-back absolute w-full h-full backface-hidden flex flex-col justify-center items-center text-center rounded-2xl transition-colors duration-300"
           style={{
             backfaceVisibility: 'hidden',
             WebkitBackfaceVisibility: 'hidden',
