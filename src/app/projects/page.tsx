@@ -205,7 +205,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative">
-      {/* Global Background Effects - Extended to cover all sections */}
+      {/* Global Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(147,51,234,0.1),transparent_50%)]" />
@@ -213,7 +213,6 @@ export default function ProjectsPage() {
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -282,15 +281,15 @@ export default function ProjectsPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-20"
       >
         <div className="flex justify-center">
-          <div className="flex space-x-2 bg-gray-800/50 rounded-2xl p-2">
+          <div className="flex space-x-2 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-2 relative z-20">
             {categories.map((category) => (
               <button
                 key={category.key}
                 onClick={() => setSelectedCategory(category.key)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 ${
                   selectedCategory === category.key
                     ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25'
                     : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
@@ -304,7 +303,7 @@ export default function ProjectsPage() {
         </div>
       </motion.div>
 
-      {/* Mini Projects Grid */}
+      {/* Projects Grid */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -330,8 +329,8 @@ export default function ProjectsPage() {
                 className="group relative"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Mini Project Card */}
-                <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80   rounded-lg overflow-hidden transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10 max-w-sm mx-auto">
+                {/* Project Card */}
+                <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-lg overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 max-w-sm mx-auto">
                   {/* Featured Badge */}
                   {project.featured && (
                     <div className="absolute top-2 left-2 z-10">
@@ -356,7 +355,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
 
-                  {/* Mini Project Image */}
+                  {/* Project Image */}
                   <div className="relative h-28 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -369,7 +368,7 @@ export default function ProjectsPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
-                  {/* Mini Project Content */}
+                  {/* Project Content */}
                   <div className="p-3">
                     {/* Year */}
                     <div className="text-xs text-gray-500 mb-1">{project.year}</div>
@@ -384,27 +383,27 @@ export default function ProjectsPage() {
                       {project.description}
                     </p>
 
-                    {/* Mini Technologies */}
+                    {/* Technologies */}
                     <div className="mb-2">
                       <div className="flex flex-wrap gap-1">
                         {project.technologies.slice(0, 2).map((tech, idx) => (
                           <div
                             key={tech.name}
-                            className="flex items-center space-x-0.5 px-1 py-0.5 bg-gray-800/50  rounded text-xs"
+                            className="flex items-center space-x-0.5 px-1 py-0.5 bg-gray-800/50 rounded text-xs"
                           >
                             <span className={tech.color}>{tech.icon}</span>
                             <span className="text-gray-300 text-xs">{tech.name}</span>
                           </div>
                         ))}
                         {project.technologies.length > 2 && (
-                          <div className="px-1 py-0.5 bg-gray-800/50  rounded text-xs text-gray-400">
+                          <div className="px-1 py-0.5 bg-gray-800/50 rounded text-xs text-gray-400">
                             +{project.technologies.length - 2}
                           </div>
                         )}
                       </div>
                     </div>
 
-                    {/* Mini Stats */}
+                    {/* Stats */}
                     {project.stats && (
                       <div className="flex items-center space-x-2 mb-2 text-xs text-gray-500">
                         {project.stats.stars && (
@@ -428,14 +427,14 @@ export default function ProjectsPage() {
                       </div>
                     )}
 
-                    {/* Mini Action Buttons */}
+                    {/* Action Buttons */}
                     <div className="flex space-x-1.5">
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center space-x-1 px-2 py-1.5 bg-gray-800/50 hover:bg-gray-700/50   text-gray-300 hover:text-yellow-400 rounded text-xs font-medium transition-all duration-300"
+                          className="flex-1 flex items-center justify-center space-x-1 px-2 py-1.5 bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-yellow-400 rounded text-xs font-medium transition-all duration-300"
                         >
                           <FiGithub className="w-3 h-3" />
                           <span className="text-xs">GitHub</span>
@@ -477,14 +476,14 @@ export default function ProjectsPage() {
         )}
       </motion.div>
 
-      {/* Call to Action */}
+      {/* Testimonials Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
         className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20"
       >
-        <div className="relative overflow-hidden bg-gradient-to-r from-gray-800/80 to-gray-900/80   rounded-3xl p-12 text-center">
+        <div className="relative overflow-hidden bg-gradient-to-r from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-3xl p-12">
           {/* Background Effects */}
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-pink-500/10" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(212,175,55,0.1),transparent_50%)]" />
@@ -496,27 +495,144 @@ export default function ProjectsPage() {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-6"
             >
-              <FiAward className="w-5 h-5 text-yellow-400 mr-2" />
-              <span className="text-yellow-400 font-medium">Hợp tác</span>
+              <FiStar className="w-5 h-5 text-yellow-400 mr-2" />
+              <span className="text-yellow-400 font-medium">Testimonials</span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Có dự án muốn hợp tác?
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
+              Khách hàng nói gì về tôi?
             </h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Tôi luôn sẵn sàng tham gia các dự án thú vị và đầy thách thức. 
-              Hãy liên hệ để thảo luận về ý tưởng của bạn.
+            <p className="text-gray-300 text-lg mb-12 text-center max-w-2xl mx-auto">
+              Những phản hồi tích cực từ khách hàng và đối tác đã hợp tác cùng tôi
             </p>
             
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "Nguyễn Văn An",
+                  position: "CEO - TechStart Vietnam",
+                  company: "Công ty Cổ phần TechStart",
+                  content: "Đỗ Ngọc Quý là một developer xuất sắc với khả năng tư duy logic và giải quyết vấn đề rất tốt. Dự án AI-powered platform mà anh ấy xây dựng cho chúng tôi đã vượt quá mong đợi.",
+                  rating: 5,
+                  project: "AI-Powered Task Manager"
+                },
+                {
+                  name: "Trần Thị Bình",
+                  position: "Product Manager",
+                  company: "E-commerce Solutions",
+                  content: "Làm việc với Quý rất chuyên nghiệp và hiệu quả. Anh ấy không chỉ code tốt mà còn đưa ra nhiều gợi ý cải tiến sản phẩm rất có giá trị.",
+                  rating: 5,
+                  project: "E-commerce Luxury Platform"
+                },
+                {
+                  name: "Lê Minh Cường",
+                  position: "CTO - Banking Solutions",
+                  company: "Digital Banking Corp",
+                  content: "Dự án Mobile Banking Suite mà Quý thực hiện cho chúng tôi rất ấn tượng. Anh ấy có kiến thức sâu rộng về bảo mật và blockchain.",
+                  rating: 5,
+                  project: "Mobile Banking Suite"
+                },
+                {
+                  name: "Phạm Thị Dung",
+                  position: "Founder & CEO",
+                  company: "ContentAI Startup",
+                  content: "Quý đã giúp chúng tôi xây dựng AI Content Generator từ ý tưởng đến sản phẩm hoàn chỉnh. Kết quả vượt quá mong đợi!",
+                  rating: 5,
+                  project: "AI Content Generator"
+                },
+                {
+                  name: "Hoàng Văn Em",
+                  position: "Technical Lead",
+                  company: "Communication Tech",
+                  content: "Real-time Chat Platform mà Quý phát triển có hiệu suất rất tốt và giao diện người dùng tuyệt vời. Rất hài lòng với sự hợp tác.",
+                  rating: 5,
+                  project: "Real-time Chat Platform"
+                },
+                {
+                  name: "Vũ Thị Phương",
+                  position: "Marketing Director",
+                  company: "Creative Agency",
+                  content: "Portfolio Showcase mà Quý tạo ra cho chúng tôi rất chuyên nghiệp và hiện đại. Khách hàng rất ấn tượng với thiết kế.",
+                  rating: 5,
+                  project: "Portfolio Showcase"
+                }
+              ].map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-sm rounded-2xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 hover:scale-105"
+                >
+                  {/* Quote Icon */}
+                  <div className="absolute top-4 right-4 text-yellow-400/30">
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                  </div>
+
+                  {/* Rating Stars */}
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <FiStar key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+
+                  {/* Content */}
+                  <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                    &ldquo;{testimonial.content}&rdquo;
+                  </p>
+
+                  {/* Project Badge */}
+                  <div className="mb-4">
+                    <span className="inline-flex items-center px-2 py-1 bg-yellow-400/20 border border-yellow-400/30 rounded-full text-xs text-yellow-300">
+                      <FiCode className="w-3 h-3 mr-1" />
+                      {testimonial.project}
+                    </span>
+                  </div>
+
+                  {/* Author Info */}
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-purple-500 rounded-full flex items-center justify-center mr-3">
+                      <span className="text-gray-900 font-bold text-sm">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold text-sm">{testimonial.name}</div>
+                      <div className="text-gray-400 text-xs">{testimonial.position}</div>
+                      <div className="text-yellow-400 text-xs">{testimonial.company}</div>
+                    </div>
+                  </div>
+
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mt-12 text-center"
             >
-              <span>Liên hệ ngay</span>
-              <FiExternalLink className="w-5 h-5" />
-            </motion.a>
+              <div className="inline-flex items-center space-x-8 bg-gray-800/50 backdrop-blur-sm rounded-2xl px-8 py-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-yellow-400">100%</div>
+                  <div className="text-gray-400 text-sm">Khách hàng hài lòng</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-400">5.0</div>
+                  <div className="text-gray-400 text-sm">Đánh giá trung bình</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-pink-400">50+</div>
+                  <div className="text-gray-400 text-sm">Dự án hoàn thành</div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </motion.div>

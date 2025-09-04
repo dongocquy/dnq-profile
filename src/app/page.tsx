@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiAward, FiCode, FiServer, FiShield, FiUsers, FiGlobe, FiMail, FiExternalLink } from 'react-icons/fi';
-import Button from '@/components/ui/Button'
+import Image from 'next/image';
+import { FiAward, FiMail, FiExternalLink } from 'react-icons/fi';
 import { AudioVisualizer } from '@/components/ui/AudioWaveform'
-import TypingAnimation, { MultiLineTypingAnimation } from '@/components/ui/TypingAnimation'
+import { MultiLineTypingAnimation } from '@/components/ui/TypingAnimation'
 import SocialLinks from '@/components/ui/SocialLinks'
 import FlipCard from '@/components/ui/FlipCard'
 
@@ -58,11 +58,13 @@ export default function Home() {
           >
             <div className="relative">
               <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-yellow-500/30 shadow-2xl animate-glow">
-                <img 
+                <Image 
                   src="/images/avatar/1.jpg" 
                   alt="Đỗ Ngọc Quý" 
+                  width={192}
+                  height={192}
                   className="w-full h-full object-cover object-center"
-                  style={{ imageRendering: 'high-quality' }}
+                  priority
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 w-10 h-10 bg-gradient-to-r from-yellow-400 to-purple-500 rounded-full flex items-center justify-center animate-pulse shadow-lg">
@@ -130,7 +132,7 @@ export default function Home() {
                 {/* Favorite Quote */}
                 <div className="mb-6 p-4 border-l-4 border-yellow-400 bg-yellow-400/10 rounded-r-lg">
                   <p className="text-xl font-bold text-yellow-300 italic">
-                    "Nothing Is Impossible"
+                    &ldquo;Nothing Is Impossible&rdquo;
                   </p>
                   <p className="text-sm text-yellow-200 mt-1">
                     — Triết lý sống của tôi
@@ -276,26 +278,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="flex gap-4 justify-center mb-8">
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25"
-            >
-              <span>Liên hệ ngay</span>
-              <FiMail className="w-5 h-5" />
-            </motion.a>
-            <motion.a
-              href="/projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 text-white font-bold rounded-xl transition-all duration-300"
-            >
-              <span>Xem portfolio</span>
-              <FiExternalLink className="w-5 h-5" />
-            </motion.a>
-          </div>
+
         </motion.div>
       </motion.div>
 

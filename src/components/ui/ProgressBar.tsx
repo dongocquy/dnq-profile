@@ -20,7 +20,6 @@ export function ProgressBar({
   label,
   animate = true,
 }: ProgressBarProps) {
-  const [isVisible, setIsVisible] = useState(false);
   const [progressWidth, setProgressWidth] = useState(0);
   const progressRef = useRef<HTMLDivElement>(null);
 
@@ -28,7 +27,6 @@ export function ProgressBar({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
           if (animate) {
             // Animate progress bar
             setTimeout(() => {

@@ -318,15 +318,6 @@ export default function AboutPage() {
                 <span>Xem dự án</span>
                 <FiAward className="w-5 h-5" />
               </motion.a>
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-2 px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50   text-white font-bold rounded-xl transition-all duration-300"
-              >
-                <span>Liên hệ</span>
-                <FiMail className="w-5 h-5" />
-              </motion.a>
             </div>
           </div>
         </div>

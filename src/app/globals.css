@@ -570,6 +570,16 @@ body {
   will-change: transform;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.flip-card:hover {
+  border-color: rgba(251, 191, 36, 0.6) !important;
+  transform: translateY(-8px) translateZ(0) scale(1.02);
+  -webkit-transform: translateY(-8px) translateZ(0) scale(1.02);
+  box-shadow: 0 20px 40px -12px rgba(220, 38, 38, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .flip-card-inner {
@@ -810,14 +820,13 @@ body {
 
 /* Add border to the flip card container instead of individual faces */
 .flip-card {
-  
   border-radius: 1rem;
   transition: border-color 0.3s ease;
   position: relative;
 }
 
 .flip-card:hover {
-  
+  border-color: rgba(251, 191, 36, 0.6) !important;
 }
 
 /* Remove borders from individual faces to prevent issues */
@@ -833,14 +842,17 @@ body {
 @keyframes card-pulse {
   0%, 100% {
     box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.4), 0 0 30px rgba(212, 175, 55, 0.3);
+    border-color: rgba(251, 191, 36, 0.6);
   }
   50% {
     box-shadow: 0 30px 60px -15px rgba(220, 38, 38, 0.6), 0 0 40px rgba(212, 175, 55, 0.5);
+    border-color: rgba(251, 191, 36, 0.8);
   }
 }
 
 .flip-card.flipped {
   animation: card-pulse 2s ease-in-out infinite;
+  border-color: rgba(251, 191, 36, 0.6) !important;
 }
 
 /* Performance optimizations */
@@ -1181,15 +1193,54 @@ body {
   }
 }
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .project-card {
-    border: 2px solid #d4af37;
-  }
-  
-  .nav-item-projects {
-    border: 1px solid #d4af37;
-  }
+/* Filter button styles - ensure they're always clickable */
+.filter-button {
+  position: relative;
+  z-index: 50;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.filter-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.filter-button:active {
+  transform: scale(0.98);
+}
+
+.filter-container {
+  position: relative;
+  z-index: 40;
+  pointer-events: auto;
+}
+
+/* Ensure filter buttons are above all other elements */
+.filter-section {
+  position: relative;
+  z-index: 30;
+}
+
+/* Navigation specific styles */
+.bg-gradient-gold-purple {
+  background: linear-gradient(135deg, #d4af37 0%, #9333ea 50%, #ec4899 100%);
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.shadow-glow-strong {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
 }
 
 /* Reduced motion support */

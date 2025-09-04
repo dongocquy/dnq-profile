@@ -18,7 +18,7 @@ export default function AudioWaveform({
   isPlaying = true
 }: AudioWaveformProps) {
   const [bars, setBars] = useState<number[]>([])
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
 
   useEffect(() => {
     // Khởi tạo các thanh với chiều cao ngẫu nhiên
@@ -77,7 +77,7 @@ export function AudioVisualizer({
   isPlaying?: boolean 
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current

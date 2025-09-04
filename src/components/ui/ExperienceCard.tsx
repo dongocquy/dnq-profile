@@ -55,7 +55,8 @@ export default function ExperienceCard({ item, index, total }: ExperienceCardPro
       initial="hidden"
       animate="visible"
       whileHover="hover"
-      className={`relative mb-8 md:mb-12 last:mb-0 ${isEven ? 'text-left' : 'text-right'}`}
+      className={`relative last:mb-0 ${isEven ? 'text-left' : 'text-right'}`}
+      style={{ marginBottom: '270px' }}
     >
       {/* Content Card */}
       <div 

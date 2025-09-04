@@ -275,37 +275,37 @@ export default function SkillsPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-20"
       >
         <div className="max-w-4xl mx-auto">
           {/* Filter Buttons */}
-        <div className="flex justify-center">
-            <div className="flex flex-wrap justify-center gap-3 bg-gray-800/50   rounded-3xl p-3">
-            <button
-              onClick={() => setSelectedCategory('all')}
-                className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 ${
-                selectedCategory === 'all'
+          <div className="flex justify-center">
+            <div className="flex flex-wrap justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-3xl p-3 relative z-20">
+              <button
+                onClick={() => setSelectedCategory('all')}
+                className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer relative z-10 ${
+                  selectedCategory === 'all'
                     ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25 scale-105'
                     : 'text-gray-400 hover:text-white hover:bg-gray-800/50 hover:scale-105'
-              }`}
-            >
-                <FiAward className="w-5 h-5" />
-                <span>Tất cả ({skills.length})</span>
-            </button>
-            {categories.map((category) => (
-              <button
-                key={category.key}
-                onClick={() => setSelectedCategory(category.key)}
-                  className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 ${
-                  selectedCategory === category.key
-                      ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25 scale-105'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800/50 hover:scale-105'
                 }`}
               >
-                {category.icon}
-                  <span>{category.label} ({skills.filter(s => s.category === category.key).length})</span>
+                <FiAward className="w-5 h-5" />
+                <span>Tất cả ({skills.length})</span>
               </button>
-            ))}
+              {categories.map((category) => (
+                <button
+                  key={category.key}
+                  onClick={() => setSelectedCategory(category.key)}
+                  className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer relative z-10 ${
+                    selectedCategory === category.key
+                      ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25 scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-gray-800/50 hover:scale-105'
+                  }`}
+                >
+                  {category.icon}
+                  <span>{category.label} ({skills.filter(s => s.category === category.key).length})</span>
+                </button>
+              ))}
             </div>
           </div>
         </div>

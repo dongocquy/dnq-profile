@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FiAward, FiCode, FiUsers, FiMonitor, FiTrendingUp, FiTarget } from 'react-icons/fi'
+import { FiAward, FiCode, FiUsers, FiMonitor, FiTrendingUp } from 'react-icons/fi'
 import ExperienceCard from './ExperienceCard'
 
 interface ExperienceItem {
