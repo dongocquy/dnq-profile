@@ -35,8 +35,6 @@ export default function AboutPage() {
       {/* Global Background Effects - Extended to cover all sections */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(147,51,234,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(236,72,153,0.1),transparent_50%)]" />
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -62,7 +60,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-bold mb-6 holographic-text animate-cyberpunk-glitch"
             >
               Về tôi
             </motion.h1>
@@ -115,7 +113,7 @@ export default function AboutPage() {
               variants={cardVariants}
               className="lg:col-span-1"
             >
-              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-8 h-full transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
+              <div className="relative bg-transparent backdrop-blur-sm border border-white/20 rounded-2xl p-8 h-full transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
                 {/* Featured Badge */}
                 <div className="absolute top-4 left-4 z-10">
                   <div className="flex items-center space-x-0.5 px-2 py-1 bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 text-xs font-bold rounded-full">
@@ -139,19 +137,19 @@ export default function AboutPage() {
                       Thông tin cơ bản
                     </h3>
                     <div className="space-y-3">
-                      <div className="bg-gray-800/50 p-4 rounded-xl backdrop-blur-sm">
+                      <div className="bg-transparent backdrop-blur-sm border border-white/10 p-4 rounded-xl backdrop-blur-sm">
                         <div className="text-sm text-gray-400 mb-1">Họ và tên</div>
                         <div className="text-white font-semibold">Đỗ Ngọc Quý</div>
                       </div>
-                      <div className="bg-gray-800/50 p-4 rounded-xl backdrop-blur-sm">
+                      <div className="bg-transparent backdrop-blur-sm border border-white/10 p-4 rounded-xl backdrop-blur-sm">
                         <div className="text-sm text-gray-400 mb-1">Ngày sinh</div>
                         <div className="text-white font-semibold">15/03/1995</div>
                       </div>
-                      <div className="bg-gray-800/50 p-4 rounded-xl backdrop-blur-sm">
+                      <div className="bg-transparent backdrop-blur-sm border border-white/10 p-4 rounded-xl backdrop-blur-sm">
                         <div className="text-sm text-gray-400 mb-1">Vị trí</div>
                         <div className="text-white font-semibold">Full Stack Developer</div>
                       </div>
-                      <div className="bg-gray-800/50 p-4 rounded-xl backdrop-blur-sm">
+                      <div className="bg-transparent backdrop-blur-sm border border-white/10 p-4 rounded-xl backdrop-blur-sm">
                         <div className="text-sm text-gray-400 mb-1">Kinh nghiệm</div>
                         <div className="text-white font-semibold">10+ năm</div>
                       </div>
@@ -165,15 +163,15 @@ export default function AboutPage() {
                       Thông tin liên hệ
                     </h3>
                     <div className="space-y-3">
-                      <div className="bg-gray-800/50 p-4 rounded-xl backdrop-blur-sm">
+                      <div className="bg-transparent backdrop-blur-sm border border-white/10 p-4 rounded-xl backdrop-blur-sm">
                         <div className="text-sm text-gray-400 mb-1">Email</div>
                         <div className="text-white font-semibold">dnq@gmail.com</div>
                       </div>
-                      <div className="bg-gray-800/50 p-4 rounded-xl backdrop-blur-sm">
+                      <div className="bg-transparent backdrop-blur-sm border border-white/10 p-4 rounded-xl backdrop-blur-sm">
                         <div className="text-sm text-gray-400 mb-1">Số điện thoại</div>
                         <div className="text-white font-semibold">+84 123 456 789</div>
                       </div>
-                      <div className="bg-gray-800/50 p-4 rounded-xl backdrop-blur-sm">
+                      <div className="bg-transparent backdrop-blur-sm border border-white/10 p-4 rounded-xl backdrop-blur-sm">
                         <div className="text-sm text-gray-400 mb-1">Địa chỉ</div>
                         <div className="text-white font-semibold">Hà Nội, Việt Nam</div>
                       </div>
@@ -192,7 +190,7 @@ export default function AboutPage() {
               className="lg:col-span-2 space-y-8"
             >
               {/* About Me Card */}
-              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
+              <div className="relative bg-transparent backdrop-blur-sm border border-white/20 rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-purple-500 rounded-xl flex items-center justify-center mr-4">
                     <FiCode className="w-6 h-6 text-gray-900" />
@@ -204,10 +202,10 @@ export default function AboutPage() {
                   <p className="p-4 rounded-xl backdrop-blur-sm">
                     Tôi là Founder & CEO tại Công ty Cổ phần RCQ Xuất khẩu Bingo, với hơn 10 năm kinh nghiệm phát triển phần mềm quản lý doanh nghiệp và chuyên môn về công nghệ nông nghiệp.
                   </p>
-                  <p className="p-4 bg-gray-800/50 rounded-xl backdrop-blur-sm">
+                  <p className="p-4 bg-transparent backdrop-blur-sm border border-white/10 rounded-xl backdrop-blur-sm">
                     Tôi kết hợp công nghệ AI/ML với nông nghiệp truyền thống để tạo ra những giải pháp đột phá, giúp doanh nghiệp tối ưu hóa quy trình sản xuất và xuất khẩu.
                   </p>
-                  <p className="p-4 bg-gray-800/50 rounded-xl backdrop-blur-sm">
+                  <p className="p-4 bg-transparent backdrop-blur-sm border border-white/10 rounded-xl backdrop-blur-sm">
                     Với kiến thức sâu rộng về cả frontend và backend, tôi có thể xây dựng các giải pháp hoàn chỉnh từ ý tưởng đến triển khai sản phẩm, đặc biệt trong lĩnh vực Enterprise Software.
                   </p>
                 </div>
@@ -217,7 +215,7 @@ export default function AboutPage() {
               </div>
 
               {/* Goals Card */}
-              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
+              <div className="relative bg-transparent backdrop-blur-sm border border-white/20 rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                     <FiTarget className="w-6 h-6 text-gray-900" />
@@ -226,10 +224,10 @@ export default function AboutPage() {
                 </div>
                 
                 <div className="space-y-4 text-gray-300 leading-relaxed">
-                  <p className="p-4 bg-gray-800/50 rounded-xl backdrop-blur-sm">
+                  <p className="p-4 bg-transparent backdrop-blur-sm border border-white/10 rounded-xl backdrop-blur-sm">
                     Mục tiêu của tôi là trở thành một chuyên gia hàng đầu trong lĩnh vực AI/ML và công nghệ nông nghiệp, tạo ra những sản phẩm có giá trị cao và đóng góp tích cực cho ngành nông nghiệp Việt Nam.
                   </p>
-                  <p className="p-4 bg-gray-800/50 rounded-xl backdrop-blur-sm">
+                  <p className="p-4 bg-transparent backdrop-blur-sm border border-white/10 rounded-xl backdrop-blur-sm">
                     Tôi mong muốn mở rộng thị trường xuất khẩu sang EU và các thị trường khác, đồng thời chia sẻ kinh nghiệm và kiến thức với cộng đồng startup và doanh nghiệp Việt Nam.
                   </p>
                 </div>
@@ -243,7 +241,7 @@ export default function AboutPage() {
           {/* Interests Section */}
           <motion.div
             variants={cardVariants}
-            className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm  rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10"
+            className="relative bg-transparent backdrop-blur-sm border border-white/20  rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10"
           >
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-yellow-400 rounded-xl flex items-center justify-center mr-4">
@@ -262,7 +260,7 @@ export default function AboutPage() {
                 <motion.div 
                   key={index}
                   variants={itemVariants}
-                  className="p-6 bg-gray-800/50  rounded-xl backdrop-blur-sm text-center transition-all duration-300 hover:scale-110  group"
+                  className="p-6 bg-transparent backdrop-blur-sm border border-white/10  rounded-xl backdrop-blur-sm text-center transition-all duration-300 hover:scale-110  group"
                 >
                   <div className={`mb-3 group-hover:animate-bounce ${interest.color}`}>
                     {interest.icon}
@@ -313,10 +311,10 @@ export default function AboutPage() {
                 href="/projects"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25"
+                className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25 animate-magnetic-hover hover-glow"
               >
-                <span>Xem dự án</span>
-                <FiAward className="w-5 h-5" />
+                <span className="animate-neon-glow">Xem dự án</span>
+                <FiAward className="w-5 h-5 animate-rotate-scale animate-particle-explosion" />
               </motion.a>
             </div>
           </div>

@@ -208,8 +208,6 @@ export default function ProjectsPage() {
       {/* Global Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(147,51,234,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(236,72,153,0.1),transparent_50%)]" />
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -234,7 +232,7 @@ export default function ProjectsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl font-bold mb-6 holographic-text animate-neural-pulse"
             >
               Dự án của tôi
             </motion.h1>
@@ -284,7 +282,7 @@ export default function ProjectsPage() {
         className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-20"
       >
         <div className="flex justify-center">
-          <div className="flex space-x-2 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-2 relative z-20">
+          <div className="flex space-x-2 bg-transparent backdrop-blur-sm border border-white/10 backdrop-blur-sm rounded-2xl p-2 relative z-20">
             {categories.map((category) => (
               <button
                 key={category.key}
@@ -292,7 +290,7 @@ export default function ProjectsPage() {
                 className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 ${
                   selectedCategory === category.key
                     ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                    : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10'
                 }`}
               >
                 {category.icon}
@@ -330,7 +328,7 @@ export default function ProjectsPage() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Project Card */}
-                <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-lg overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 max-w-sm mx-auto">
+                <div className="relative bg-transparent backdrop-blur-sm border border-white/20 rounded-lg overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 max-w-sm mx-auto hover-lift animate-parallax-float hover-glow">
                   {/* Featured Badge */}
                   {project.featured && (
                     <div className="absolute top-2 left-2 z-10">
@@ -389,14 +387,14 @@ export default function ProjectsPage() {
                         {project.technologies.slice(0, 2).map((tech, idx) => (
                           <div
                             key={tech.name}
-                            className="flex items-center space-x-0.5 px-1 py-0.5 bg-gray-800/50 rounded text-xs"
+                            className="flex items-center space-x-0.5 px-1 py-0.5 bg-transparent backdrop-blur-sm border border-white/10 rounded text-xs"
                           >
                             <span className={tech.color}>{tech.icon}</span>
                             <span className="text-gray-300 text-xs">{tech.name}</span>
                           </div>
                         ))}
                         {project.technologies.length > 2 && (
-                          <div className="px-1 py-0.5 bg-gray-800/50 rounded text-xs text-gray-400">
+                          <div className="px-1 py-0.5 bg-transparent backdrop-blur-sm border border-white/10 rounded text-xs text-gray-400">
                             +{project.technologies.length - 2}
                           </div>
                         )}
@@ -434,7 +432,7 @@ export default function ProjectsPage() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 flex items-center justify-center space-x-1 px-2 py-1.5 bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-yellow-400 rounded text-xs font-medium transition-all duration-300"
+                          className="flex-1 flex items-center justify-center space-x-1 px-2 py-1.5 bg-transparent backdrop-blur-sm border border-white/10 hover:bg-gray-700/50 text-gray-300 hover:text-yellow-400 rounded text-xs font-medium transition-all duration-300"
                         >
                           <FiGithub className="w-3 h-3" />
                           <span className="text-xs">GitHub</span>
@@ -618,7 +616,7 @@ export default function ProjectsPage() {
               transition={{ duration: 0.8, delay: 1.2 }}
               className="mt-12 text-center"
             >
-              <div className="inline-flex items-center space-x-8 bg-gray-800/50 backdrop-blur-sm rounded-2xl px-8 py-4">
+              <div className="inline-flex items-center space-x-8 bg-transparent backdrop-blur-sm border border-white/10 backdrop-blur-sm rounded-2xl px-8 py-4">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-yellow-400">100%</div>
                   <div className="text-gray-400 text-sm">Khách hàng hài lòng</div>

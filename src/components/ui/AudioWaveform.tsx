@@ -53,7 +53,7 @@ export default function AudioWaveform({
       {bars.map((heightRatio, index) => (
         <div
           key={index}
-          className="bg-gradient-to-t from-transparent to-current transition-all duration-75 ease-out animate-audio-wave hover:animate-audio-glow"
+          className="bg-gradient-to-t from-transparent to-current transition-all duration-150 ease-out"
           style={{
             width: '2px',
             height: `${heightRatio * height}px`,
@@ -142,7 +142,7 @@ export function AudioVisualizer({
       ctx.globalAlpha = 1
 
       // Vẽ các điểm sáng
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 8; i++) {
         const x = (time * 100 + i * 100) % canvas.width
         const y = canvas.height / 2 + 
           Math.sin(x * 0.01 + time) * 24 * Math.sin(time * 0.5)
@@ -169,7 +169,7 @@ export function AudioVisualizer({
         ctx.globalAlpha = 1
       }
 
-      time += 0.03
+      time += 0.02
       animationRef.current = requestAnimationFrame(animate)
     }
 

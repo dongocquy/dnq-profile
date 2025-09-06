@@ -15,8 +15,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
       },
     },
   };
@@ -40,12 +40,25 @@ export default function Home() {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
+      
+      {/* Floating Orbs */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-1/2 left-10 w-24 h-24 bg-pink-400/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+      
+      {/* Floating Particles */}
+      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-yellow-400 rounded-full opacity-60 animate-floating-particles"></div>
+      <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-purple-400 rounded-full opacity-50 animate-floating-particles" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-pink-400 rounded-full opacity-70 animate-floating-particles" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute bottom-1/4 right-1/4 w-4 h-4 bg-yellow-300 rounded-full opacity-40 animate-floating-particles" style={{ animationDelay: '3s' }}></div>
+      <div className="absolute top-2/3 left-1/2 w-2 h-2 bg-purple-300 rounded-full opacity-60 animate-floating-particles" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute top-1/2 right-1/5 w-3 h-3 bg-pink-300 rounded-full opacity-50 animate-floating-particles" style={{ animationDelay: '5s' }}></div>
 
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.5 }}
         className="flex min-h-screen flex-col items-center justify-center p-24 relative z-10"
       >
         <div className="text-center mb-16 relative z-10">
@@ -53,7 +66,7 @@ export default function Home() {
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="mb-8 flex justify-center"
           >
             <div className="relative">
@@ -76,7 +89,7 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="text-6xl font-bold mb-4"
           >
             <span className="bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-2xl animate-luxury-glow animate-luxury-pulse relative">
@@ -88,7 +101,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="mb-8"
           >
             <MultiLineTypingAnimation 
@@ -98,8 +111,8 @@ export default function Home() {
                 "10+ năm kinh nghiệm Enterprise Software",
                 "Thành công xuất khẩu EU Market"
               ]}
-              speed={80}
-              delay={1000}
+              speed={50}
+              delay={500}
               className="text-4xl font-bold text-orange-400 drop-shadow-2xl animate-luxury-glow"
             />
           </motion.div>
@@ -172,15 +185,15 @@ export default function Home() {
                 variants={itemVariants}
                 className="grid grid-cols-1 gap-4"
               >
-                <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
+                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
                   <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">10+</div>
                   <div className="text-white text-sm font-medium">Năm kinh nghiệm</div>
                 </div>
-                <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-purple-400/10">
+                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-purple-400/10">
                   <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent animate-gradient-x" style={{ animationDelay: '0.5s' }}>15+</div>
                   <div className="text-white text-sm font-medium">Dự án nổi bật</div>
                 </div>
-                <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-pink-400/10">
+                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-pink-400/10">
                   <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-pink-400 via-yellow-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x" style={{ animationDelay: '1s' }}>EU</div>
                   <div className="text-white text-sm font-medium">Thị trường xuất khẩu</div>
                 </div>
@@ -192,7 +205,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="mb-8 w-full -mx-24"
           >
             <div className="w-screen h-52 bg-transparent overflow-visible" style={{ borderRadius: '0' }}>
@@ -261,7 +274,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center relative z-10"
         >
           <h2 className="text-3xl font-bold text-white mb-4">
@@ -282,10 +295,6 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      {/* Decorative Elements */}
-      <div className="fixed top-20 left-20 w-32 h-32 bg-yellow-500/10 rounded-full blur-3xl animate-float"></div>
-      <div className="fixed bottom-20 right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-      <div className="fixed top-1/2 left-10 w-24 h-24 bg-pink-400/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
     </main>
   )
 }

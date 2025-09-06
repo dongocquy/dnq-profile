@@ -52,13 +52,13 @@ export default function ContactCard({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   const variantClasses = {
-    default: 'bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-400/40 ',
+    default: 'bg-transparent backdrop-blur-sm border border-red-400/30',
     minimal: 'bg-transparent border border-white/20',
-    glow: 'bg-gradient-to-br from-red-500/20 to-red-600/20 border border-red-400/40  shadow-lg shadow-red-500/10'
+    glow: 'bg-transparent backdrop-blur-sm border border-red-400/30 shadow-lg shadow-red-500/10'
   }
 
   return (
-    <div className={`${variantClasses[variant]} rounded-xl p-6 ${className}`}>
+    <div className={`${variantClasses[variant]} rounded-xl p-6 liquid-shape ${className}`}>
       <h3 className="text-xl font-bold text-white mb-4 text-center">
         <span className="bg-gradient-to-r from-red-300 to-red-500 bg-clip-text text-transparent">
           Thông Tin Liên Hệ
@@ -80,7 +80,7 @@ export default function ContactCard({
               }
             }}
           >
-            <div className="text-2xl group-hover:scale-110 transition-transform duration-300">
+            <div className="text-2xl group-hover:scale-110 transition-transform duration-300 animate-glow-pulse hover-scale">
               {contact.icon}
             </div>
             

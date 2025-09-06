@@ -72,7 +72,7 @@ export default function ExperienceCard({ item, index, total }: ExperienceCardPro
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
           {/* Main Card */}
-          <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl p-4 md:p-5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-yellow-400/20 border border-white/10 group-hover:border-yellow-400/30">
+          <div className="relative bg-transparent backdrop-blur-sm rounded-xl p-4 md:p-5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-yellow-400/20 border border-white/20 group-hover:border-yellow-400/30">
             
             {/* Header */}
             <div className={`flex items-start justify-between mb-4 md:mb-5 ${isEven ? 'flex-row-reverse' : 'flex-row'}`}>
@@ -136,7 +136,7 @@ export default function ExperienceCard({ item, index, total }: ExperienceCardPro
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.15 + idx * 0.05 }}
-                  className={`flex items-center space-x-2 md:space-x-2.5 p-2 md:p-2.5 bg-white/10 rounded-lg transition-all duration-300 group-hover:bg-white/15 ${
+                  className={`flex items-center space-x-2 md:space-x-2.5 p-2 md:p-2.5 bg-transparent backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-300 group-hover:border-yellow-400/20 ${
                     isEven ? 'flex-row-reverse' : 'flex-row'
                   }`}
                 >

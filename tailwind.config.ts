@@ -57,6 +57,9 @@ const config: Config = {
         'badge-pulse': 'badgePulse 2s ease-in-out infinite',
         'ombre-shift': 'ombreShift 3s ease-in-out infinite',
         'color-shift': 'colorShift 4s linear infinite',
+        'ombre-color-shift': 'ombreColorShift 2s ease-in-out infinite',
+        'ripple-wave': 'rippleWave 0.8s ease-out',
+        'mobile-bounce': 'mobileBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       keyframes: {
         fadeInUp: {
@@ -154,6 +157,44 @@ const config: Config = {
             filter: 'hue-rotate(360deg)',
           },
         },
+        ombreColorShift: {
+          '0%, 100%': {
+            backgroundPosition: '0% 50%',
+            filter: 'hue-rotate(0deg)',
+          },
+          '50%': {
+            backgroundPosition: '100% 50%',
+            filter: 'hue-rotate(30deg)',
+          },
+        },
+        rippleWave: {
+          '0%': {
+            transform: 'scale(0)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'scale(4)',
+            opacity: '0',
+          },
+        },
+        mobileBounce: {
+          '0%': {
+            transform: 'scale(0.3)',
+            opacity: '0',
+          },
+          '50%': {
+            transform: 'scale(1.05)',
+            opacity: '0.8',
+          },
+          '70%': {
+            transform: 'scale(0.9)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'scale(1)',
+            opacity: '1',
+          },
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -167,6 +208,10 @@ const config: Config = {
         'glow': '0 0 20px rgba(212, 175, 55, 0.6)',
         'glow-strong': '0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(255, 215, 0, 0.6)',
         'luxury': '0 4px 20px rgba(0, 0, 0, 0.5)',
+      },
+      scale: {
+        '102': '1.02',
+        '105': '1.05',
       },
     },
   },

@@ -204,10 +204,6 @@ export default function ContactPage() {
       {/* Global Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(147,51,234,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(236,72,153,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-800/30 to-gray-900/50" />
-      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-purple-900/10 to-transparent" />
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -285,7 +281,7 @@ export default function ContactPage() {
               className="space-y-8"
             >
               {/* Contact Info Card */}
-              <div className="relative bg-gradient-to-br    rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10">
+              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 group">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-purple-500 rounded-xl flex items-center justify-center mr-4">
                     <FiUsers className="w-6 h-6 text-gray-900" />
@@ -298,7 +294,7 @@ export default function ContactPage() {
                     <motion.div
                       key={info.title}
                       variants={itemVariants}
-                      className="flex items-center space-x-4 p-4 bg-white/10  rounded-xl   transition-all duration-300"
+                      className="flex items-center space-x-4 p-4 bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 rounded-xl transition-all duration-300"
                     >
                       <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center text-gray-900`}>
                         {info.icon}
@@ -312,11 +308,11 @@ export default function ContactPage() {
                 </div>
 
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               </div>
 
               {/* Social Links Card */}
-              <div className="relative bg-gradient-to-br    rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10">
+              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 group">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
                     <FiGlobe className="w-6 h-6 text-gray-900" />
@@ -334,7 +330,7 @@ export default function ContactPage() {
                       variants={itemVariants}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`w-14 h-14 bg-gradient-to-r ${social.color} rounded-xl flex items-center justify-center text-white hover:shadow-lg transition-all duration-300`}
+                      className={`w-14 h-14 bg-gradient-to-r ${social.color} rounded-xl flex items-center justify-center text-white hover:shadow-lg border border-yellow-400/30 hover:border-yellow-400/50 transition-all duration-300`}
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -343,11 +339,11 @@ export default function ContactPage() {
                 </div>
 
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               </div>
 
               {/* Working Hours Card */}
-              <div className="relative bg-gradient-to-br    rounded-2xl p-8 transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10">
+              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 group">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-yellow-400 rounded-xl flex items-center justify-center mr-4">
                     <FiClock className="w-6 h-6 text-gray-900" />
@@ -356,22 +352,22 @@ export default function ContactPage() {
                 </div>
                 
                 <div className="space-y-3 text-gray-300">
-                  <div className="flex justify-between items-center p-3 bg-white/10  rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 rounded-lg transition-all duration-300">
                     <span>Thứ 2 - Thứ 6</span>
                     <span className="text-yellow-400 font-medium">9:00 - 18:00</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-white/10  rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 rounded-lg transition-all duration-300">
                     <span>Thứ 7</span>
                     <span className="text-purple-400 font-medium">9:00 - 12:00</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-white/10  rounded-lg">
+                  <div className="flex justify-between items-center p-3 bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 rounded-lg transition-all duration-300">
                     <span>Chủ nhật</span>
                     <span className="text-pink-400 font-medium">Nghỉ</span>
                   </div>
                 </div>
 
                 {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               </div>
             </motion.div>
 

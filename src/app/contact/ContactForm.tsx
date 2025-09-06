@@ -66,7 +66,7 @@ export default function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative bg-gradient-to-br from-gray-900/80 via-purple-900/60 to-gray-900/80 backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 border border-gray-700/50"
+      className="relative bg-white/5 backdrop-blur-md rounded-2xl p-8 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 group"
     >
       <div className="flex items-center mb-6">
         <motion.div 
@@ -109,7 +109,7 @@ export default function ContactForm() {
             onFocus={() => setFocusedField('name')}
             onBlur={() => setFocusedField('')}
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:bg-white/10 border border-gray-600/50 transition-all duration-300 backdrop-blur-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 focus:border-yellow-400/70 transition-all duration-300 backdrop-blur-sm"
             placeholder="Nhập họ và tên của bạn"
             whileFocus={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -145,7 +145,7 @@ export default function ContactForm() {
             onFocus={() => setFocusedField('email')}
             onBlur={() => setFocusedField('')}
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:bg-white/10 border border-gray-600/50 transition-all duration-300 backdrop-blur-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 focus:border-yellow-400/70 transition-all duration-300 backdrop-blur-sm"
             placeholder="Nhập email của bạn"
             whileFocus={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -181,7 +181,7 @@ export default function ContactForm() {
             onFocus={() => setFocusedField('subject')}
             onBlur={() => setFocusedField('')}
             required
-            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-400/50 focus:bg-white/10 border border-gray-600/50 transition-all duration-300 backdrop-blur-sm"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-400/50 focus:bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 focus:border-yellow-400/70 transition-all duration-300 backdrop-blur-sm"
             placeholder="Nhập tiêu đề tin nhắn"
             whileFocus={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -217,7 +217,7 @@ export default function ContactForm() {
             onBlur={() => setFocusedField('')}
             required
             rows={5}
-            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:bg-white/10 border border-gray-600/50 transition-all duration-300 backdrop-blur-sm resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:bg-white/10 border border-yellow-400/30 hover:border-yellow-400/50 focus:border-yellow-400/70 transition-all duration-300 backdrop-blur-sm resize-none"
             placeholder="Nhập nội dung tin nhắn"
             whileFocus={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -263,18 +263,8 @@ export default function ContactForm() {
         </motion.button>
       </form>
 
-      {/* Enhanced Glow Effect */}
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-        animate={{ 
-          background: [
-            "linear-gradient(45deg, rgba(251, 191, 36, 0.05), rgba(168, 85, 247, 0.05), rgba(236, 72, 153, 0.05))",
-            "linear-gradient(45deg, rgba(236, 72, 153, 0.05), rgba(251, 191, 36, 0.05), rgba(168, 85, 247, 0.05))",
-            "linear-gradient(45deg, rgba(168, 85, 247, 0.05), rgba(236, 72, 153, 0.05), rgba(251, 191, 36, 0.05))"
-          ]
-        }}
-        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-      />
+      {/* Glow Effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
     </motion.div>
   );
 }

@@ -129,8 +129,6 @@ export default function SkillsPage() {
       {/* Global Background Effects - Extended to cover all sections */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(147,51,234,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(236,72,153,0.1),transparent_50%)]" />
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -158,7 +156,7 @@ export default function SkillsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 holographic-text animate-morphing-gradient leading-tight"
             >
               Kỹ năng của tôi
             </motion.h1>
@@ -280,13 +278,13 @@ export default function SkillsPage() {
         <div className="max-w-4xl mx-auto">
           {/* Filter Buttons */}
           <div className="flex justify-center">
-            <div className="flex flex-wrap justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-3xl p-3 relative z-20">
+            <div className="flex flex-wrap justify-center gap-3 bg-transparent backdrop-blur-sm border border-white/10 backdrop-blur-sm rounded-3xl p-3 relative z-20">
               <button
                 onClick={() => setSelectedCategory('all')}
                 className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer relative z-10 ${
                   selectedCategory === 'all'
                     ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25 scale-105'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-800/50 hover:scale-105'
+                    : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
                 }`}
               >
                 <FiAward className="w-5 h-5" />
@@ -299,7 +297,7 @@ export default function SkillsPage() {
                   className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer relative z-10 ${
                     selectedCategory === category.key
                       ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25 scale-105'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800/50 hover:scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
                   }`}
                 >
                   {category.icon}
@@ -353,7 +351,7 @@ export default function SkillsPage() {
               
               {/* Skill Card với hiệu ứng phát sáng nâng cao */}
               <GlowEffect>
-                <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80   rounded-lg overflow-hidden transition-all duration-500  hover:shadow-lg hover:shadow-yellow-400/10">
+                <div className="relative bg-transparent backdrop-blur-sm border border-white/20 rounded-lg overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 hover-lift animate-bounce-in hover-glow">
                   {/* Category Badge */}
                   <div className="absolute top-4 right-4 z-10">
                     <div className={`px-2 py-1 text-xs font-bold rounded-full bg-gradient-to-r ${categories.find(c => c.key === skill.category)?.color} text-gray-900`}>
@@ -577,7 +575,7 @@ export default function SkillsPage() {
                         }}
                       >
                         <GlowEffect>
-                          <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-4 md:p-5 transition-all duration-500 group">
+                          <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-xl p-4 md:p-5 transition-all duration-500 group">
                             {/* Header */}
                             <div className={`flex items-start justify-between mb-4 md:mb-5 ${index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'}`}>
                               <div className={`flex items-center space-x-6 md:space-x-8 ${index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'}`}>
