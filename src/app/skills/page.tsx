@@ -185,19 +185,19 @@ export default function SkillsPage() {
               className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-16"
             >
               <div className="text-center p-8 bg-gradient-to-br from-yellow-400/10 to-purple-500/10 border border-yellow-400/20 rounded-xl ">
-                <div className="text-lg md:text-xl lg:text-2xl font-bold text-yellow-400 mb-1">{skills.length}</div>
-                <div className="text-gray-300 font-medium text-xs md:text-sm">Công nghệ</div>
-                <div className="text-gray-500 text-xs mt-1">Đã thành thạo</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400 mb-2">{skills.length}</div>
+                <div className="text-gray-300 font-medium text-sm md:text-base">Công nghệ</div>
+                <div className="text-gray-500 text-sm mt-1">Đã thành thạo</div>
               </div>
               <div className="text-center p-8 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-400/20 rounded-xl ">
-                <div className="text-lg md:text-xl lg:text-2xl font-bold text-purple-400 mb-1">{categories.length}</div>
-                <div className="text-gray-300 font-medium text-xs md:text-sm">Lĩnh vực</div>
-                <div className="text-gray-500 text-xs mt-1">Chuyên môn</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-400 mb-2">{categories.length}</div>
+                <div className="text-gray-300 font-medium text-sm md:text-base">Lĩnh vực</div>
+                <div className="text-gray-500 text-sm mt-1">Chuyên môn</div>
               </div>
               <div className="text-center p-8 bg-gradient-to-br from-pink-500/10 to-yellow-400/10 border border-pink-400/20 rounded-xl ">
-                <div className="text-lg md:text-xl lg:text-2xl font-bold text-pink-400 mb-1">10+</div>
-                <div className="text-gray-300 font-medium text-xs md:text-sm">Năm kinh nghiệm</div>
-                <div className="text-gray-500 text-xs mt-1">Thực tế</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-400 mb-2">10+</div>
+                <div className="text-gray-300 font-medium text-sm md:text-base">Năm kinh nghiệm</div>
+                <div className="text-gray-500 text-sm mt-1">Thực tế</div>
               </div>
             </motion.div>
           </div>
@@ -278,7 +278,87 @@ export default function SkillsPage() {
         <div className="max-w-4xl mx-auto">
           {/* Filter Buttons */}
           <div className="flex justify-center">
-            <div className="flex flex-wrap justify-center gap-3 bg-transparent backdrop-blur-sm border border-white/10 backdrop-blur-sm rounded-3xl p-3 relative z-20">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-2 sm:gap-3 bg-transparent backdrop-blur-sm border border-white/10 backdrop-blur-sm rounded-3xl p-2 sm:p-3 relative z-20 max-w-4xl">
+              {/* Row 1: Frontend, Backend */}
+              <div className="col-span-2 sm:hidden grid grid-cols-2 gap-2 mb-2">
+                <button
+                  onClick={() => setSelectedCategory('frontend')}
+                  className={`flex items-center justify-center space-x-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 text-base ${
+                    selectedCategory === 'frontend'
+                      ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-purple-400/25 scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
+                  }`}
+                >
+                  <span className="text-lg">{categories[0].icon}</span>
+                  <span className="truncate">{categories[0].label}</span>
+                </button>
+                <button
+                  onClick={() => setSelectedCategory('backend')}
+                  className={`flex items-center justify-center space-x-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 text-base ${
+                    selectedCategory === 'backend'
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-purple-400/25 scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
+                  }`}
+                >
+                  <span className="text-lg">{categories[1].icon}</span>
+                  <span className="truncate">{categories[1].label}</span>
+                </button>
+              </div>
+              
+              {/* Row 2: Database, DevOps */}
+              <div className="col-span-2 sm:hidden grid grid-cols-2 gap-2 mb-2">
+                <button
+                  onClick={() => setSelectedCategory('database')}
+                  className={`flex items-center justify-center space-x-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 text-base ${
+                    selectedCategory === 'database'
+                      ? 'bg-gradient-to-r from-purple-500 to-violet-500 text-white shadow-lg shadow-purple-400/25 scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
+                  }`}
+                >
+                  <span className="text-lg">{categories[2].icon}</span>
+                  <span className="truncate">{categories[2].label}</span>
+                </button>
+                <button
+                  onClick={() => setSelectedCategory('devops')}
+                  className={`flex items-center justify-center space-x-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 text-base ${
+                    selectedCategory === 'devops'
+                      ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-purple-400/25 scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
+                  }`}
+                >
+                  <span className="text-lg">{categories[3].icon}</span>
+                  <span className="truncate">{categories[3].label}</span>
+                </button>
+              </div>
+              
+              {/* Row 3: Mobile, AI/ML */}
+              <div className="col-span-2 sm:hidden grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setSelectedCategory('mobile')}
+                  className={`flex items-center justify-center space-x-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 text-base ${
+                    selectedCategory === 'mobile'
+                      ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg shadow-purple-400/25 scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
+                  }`}
+                >
+                  <span className="text-lg">{categories[4].icon}</span>
+                  <span className="truncate">{categories[4].label}</span>
+                </button>
+                <button
+                  onClick={() => setSelectedCategory('ai')}
+                  className={`flex items-center justify-center space-x-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 text-base ${
+                    selectedCategory === 'ai'
+                      ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-400/25 scale-105'
+                      : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
+                  }`}
+                >
+                  <span className="text-lg">{categories[5].icon}</span>
+                  <span className="truncate">{categories[5].label}</span>
+                </button>
+              </div>
+              
+              {/* Desktop Layout */}
+              <div className="hidden sm:flex sm:flex-wrap sm:justify-center gap-3">
               <button
                 onClick={() => setSelectedCategory('all')}
                 className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer relative z-10 ${
@@ -296,7 +376,7 @@ export default function SkillsPage() {
                   onClick={() => setSelectedCategory(category.key)}
                   className={`flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer relative z-10 ${
                     selectedCategory === category.key
-                      ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25 scale-105'
+                        ? `bg-gradient-to-r ${category.color} text-white shadow-lg shadow-purple-400/25 scale-105`
                       : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10 hover:scale-105'
                   }`}
                 >
@@ -304,6 +384,7 @@ export default function SkillsPage() {
                   <span>{category.label} ({skills.filter(s => s.category === category.key).length})</span>
                 </button>
               ))}
+              </div>
             </div>
           </div>
         </div>
@@ -707,34 +788,59 @@ export default function SkillsPage() {
         transition={{ duration: 0.8, delay: 1.0 }}
         className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20"
       >
-        <div className="relative overflow-hidden bg-gradient-to-r from-gray-800/80 to-gray-900/80   rounded-3xl p-12 text-center">
+        <div className="relative overflow-hidden bg-gradient-to-br from-gray-800/90 via-gray-900/80 to-gray-800/90 rounded-3xl p-8 sm:p-12 lg:p-16 text-center">
+          {/* Background Effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_70%)]" />
+          
+          {/* Floating Elements */}
+          <div className="absolute top-8 left-8 w-16 h-16 bg-yellow-400/10 rounded-full blur-xl animate-float"></div>
+          <div className="absolute bottom-8 right-8 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
           
           <div className="relative z-10">
-                          <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-6"
-              >
-              <FiAward className="w-5 h-5 text-yellow-400 mr-2" />
-              <span className="text-yellow-400 font-medium">Hợp tác</span>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-8 shadow-lg backdrop-blur-sm"
+            >
+              <FiAward className="w-5 h-5 text-yellow-400 mr-3 animate-pulse" />
+              <span className="text-yellow-400 font-semibold text-sm tracking-wide">Hợp tác</span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Muốn tìm hiểu thêm về kỹ năng của tôi?
-            </h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Tôi luôn sẵn sàng chia sẻ kiến thức và kinh nghiệm của mình. Hãy liên hệ để thảo luận về dự án của bạn.
-            </p>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-2xl">
+                Muốn tìm hiểu thêm về kỹ năng của tôi?
+              </span>
+            </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-gray-300 text-lg sm:text-xl mb-10 max-w-3xl mx-auto leading-relaxed"
+            >
+              Tôi luôn sẵn sàng chia sẻ kiến thức và kinh nghiệm của mình. 
+              <span className="text-yellow-400 font-semibold">Hãy liên hệ</span> để thảo luận về dự án của bạn và tôi sẽ đưa ra những giải pháp tốt nhất.
+            </motion.p>
             
             <motion.a
               href="/contact"
-              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25"
+              className="group inline-flex items-center space-x-3 px-10 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25 relative overflow-hidden"
             >
-              <span>Liên hệ ngay</span>
-              <FiAward className="w-5 h-5" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative z-10 text-lg">Liên hệ ngay</span>
+              <FiAward className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
             </motion.a>
           </div>
         </div>

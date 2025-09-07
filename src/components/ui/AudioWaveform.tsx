@@ -78,16 +78,28 @@ export function AudioVisualizer({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number | null>(null)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+    
     const canvas = canvasRef.current
     if (!canvas) return
 
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    canvas.width = canvas.offsetWidth
-    canvas.height = canvas.offsetHeight + 60 // Thêm 60px để tránh cắt sóng âm
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight + 60
+    }
+
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
 
     let time = 0
 
@@ -178,11 +190,25 @@ export function AudioVisualizer({
     }
 
     return () => {
+      window.removeEventListener('resize', resizeCanvas)
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, [isPlaying])
+  }, [isPlaying, mounted])
+
+  if (!mounted) {
+    return (
+      <div className={`w-full h-full ${className}`} style={{ 
+        borderRadius: '0',
+        width: '100%',
+        height: '100%',
+        display: 'block',
+        padding: '30px 0',
+        background: 'linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent)'
+      }} />
+    )
+  }
 
   return (
     <canvas

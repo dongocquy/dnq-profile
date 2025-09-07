@@ -2,41 +2,6 @@
 
 import { useEffect, useState } from 'react'
 
-// CSS for animations
-const animationStyles = `
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px) scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translateY(-8px) scale(1.1);
-      opacity: 0.6;
-    }
-  }
-  
-  @keyframes typing-cursor {
-    0%, 50% {
-      opacity: 1;
-    }
-    51%, 100% {
-      opacity: 0;
-    }
-  }
-  
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-  
-  .animate-typing-cursor {
-    animation: typing-cursor 1s infinite;
-  }
-  
-  .text-shadow-lg {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
-  }
-`
-
 interface TypingAnimationProps {
   text: string
   speed?: number
@@ -100,7 +65,7 @@ export default function TypingAnimation({
   return (
     <span className={`inline-block ${className}`}>
       {displayText}
-      <span className="animate-typing-cursor text-yellow-400 font-bold">|</span>
+      <span className="animate-pulse text-yellow-400 font-bold">|</span>
     </span>
   )
 }
@@ -164,26 +129,14 @@ export function MultiLineTypingAnimation({
   }, [displayText, lines, currentLine, speed, isTyping, isDeleting])
 
   return (
-    <>
-      <style dangerouslySetInnerHTML={{ __html: animationStyles }} />
-      <div className={`${className} group`}>
-        <div className="min-h-[3rem] flex items-center justify-center relative">
-          <span className="relative z-20 text-shadow-lg bg-gradient-to-r from-orange-400 via-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
-            {displayText}
-            <span className="animate-typing-cursor text-orange-400 font-bold ml-1">|</span>
-          </span>
-          
-          {/* Subtle glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-red-500/5 to-red-600/5 blur-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
-          {/* Minimal floating particles */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1 left-1/4 w-1 h-1 bg-orange-400/30 rounded-full animate-float" style={{ animationDelay: '0s' }} />
-            <div className="absolute top-3 right-1/3 w-0.5 h-0.5 bg-red-500/30 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-            <div className="absolute bottom-1 left-1/2 w-0.5 h-0.5 bg-red-600/30 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-          </div>
-        </div>
+    <div className={`${className} group`}>
+      <div className="min-h-[3rem] flex items-center justify-center relative">
+        <span className="relative z-20 bg-gradient-to-r from-red-900 via-red-800 via-yellow-800 to-yellow-700 bg-clip-text text-transparent">
+          {displayText}
+          <span className="animate-pulse text-red-900 font-bold ml-1">|</span>
+        </span>
+        
       </div>
-    </>
+    </div>
   )
 }

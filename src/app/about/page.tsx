@@ -283,40 +283,60 @@ export default function AboutPage() {
         transition={{ duration: 0.8, delay: 0.8 }}
         className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20"
       >
-        <div className="relative overflow-hidden bg-gradient-to-r from-gray-800/80 to-gray-900/80 backdrop-blur-sm  rounded-3xl p-12 text-center">
+        <div className="relative overflow-hidden bg-gradient-to-br from-gray-800/90 via-gray-900/80 to-gray-800/90 rounded-3xl p-8 sm:p-12 lg:p-16 text-center">
           {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-pink-500/10" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(212,175,55,0.1),transparent_50%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-pink-500/5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_70%)]" />
+          
+          {/* Floating Elements */}
+          <div className="absolute top-8 left-8 w-16 h-16 bg-yellow-400/10 rounded-full blur-xl animate-float"></div>
+          <div className="absolute bottom-8 right-8 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
           
           <div className="relative z-10">
             <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-6"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400/20 to-purple-500/20 border border-yellow-400/30 rounded-full mb-8 shadow-lg backdrop-blur-sm"
             >
-              <FiAward className="w-5 h-5 text-yellow-400 mr-2" />
-              <span className="text-yellow-400 font-medium">Hợp tác</span>
+              <FiAward className="w-5 h-5 text-yellow-400 mr-3 animate-pulse" />
+              <span className="text-yellow-400 font-semibold text-sm tracking-wide">Hợp tác</span>
             </motion.div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Muốn tìm hiểu thêm về tôi?
-            </h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Hãy xem các dự án của tôi hoặc liên hệ để thảo luận về cơ hội hợp tác.
-            </p>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-2xl">
+                Muốn tìm hiểu thêm về tôi?
+              </span>
+            </motion.h2>
             
-            <div className="flex gap-4 justify-center">
-              <motion.a
-                href="/projects"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25 animate-magnetic-hover hover-glow"
-              >
-                <span className="animate-neon-glow">Xem dự án</span>
-                <FiAward className="w-5 h-5 animate-rotate-scale animate-particle-explosion" />
-              </motion.a>
-            </div>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-gray-300 text-lg sm:text-xl mb-10 max-w-3xl mx-auto leading-relaxed"
+            >
+              Hãy xem các dự án của tôi hoặc 
+              <span className="text-yellow-400 font-semibold">liên hệ</span> để thảo luận về cơ hội hợp tác và tôi sẽ đưa ra những giải pháp tốt nhất.
+            </motion.p>
+            
+            <motion.a
+              href="/projects"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="group inline-flex items-center space-x-3 px-10 py-4 bg-gradient-to-r from-yellow-400 to-purple-500 hover:from-yellow-500 hover:to-purple-600 text-gray-900 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative z-10 text-lg">Xem dự án</span>
+              <FiAward className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+            </motion.a>
           </div>
         </div>
       </motion.div>

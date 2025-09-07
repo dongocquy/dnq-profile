@@ -90,7 +90,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-6xl font-bold mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 whitespace-nowrap"
           >
             <span className="bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-2xl animate-luxury-glow animate-luxury-pulse relative">
               Đỗ Ngọc Quý
@@ -113,7 +113,7 @@ export default function Home() {
               ]}
               speed={50}
               delay={500}
-              className="text-4xl font-bold text-orange-400 drop-shadow-2xl animate-luxury-glow"
+              className="text-4xl font-bold bg-gradient-to-r from-red-900 via-red-800 via-yellow-800 to-yellow-700 bg-clip-text text-transparent"
             />
           </motion.div>
           
@@ -185,17 +185,17 @@ export default function Home() {
                 variants={itemVariants}
                 className="grid grid-cols-1 gap-4"
               >
-                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
-                  <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">10+</div>
-                  <div className="text-white text-sm font-medium">Năm kinh nghiệm</div>
+                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-lg p-4 transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10">
+                  <div className="text-2xl font-bold mb-1 bg-gradient-to-r from-yellow-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">10+</div>
+                  <div className="text-white text-xs font-medium">Năm kinh nghiệm</div>
                 </div>
-                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-purple-400/10">
-                  <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent animate-gradient-x" style={{ animationDelay: '0.5s' }}>15+</div>
-                  <div className="text-white text-sm font-medium">Dự án nổi bật</div>
+                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-lg p-4 transition-all duration-500 hover:shadow-lg hover:shadow-purple-400/10">
+                  <div className="text-2xl font-bold mb-1 bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent animate-gradient-x" style={{ animationDelay: '0.5s' }}>15+</div>
+                  <div className="text-white text-xs font-medium">Dự án nổi bật</div>
                 </div>
-                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-xl p-6 transition-all duration-500 hover:shadow-lg hover:shadow-pink-400/10">
-                  <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-pink-400 via-yellow-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x" style={{ animationDelay: '1s' }}>EU</div>
-                  <div className="text-white text-sm font-medium">Thị trường xuất khẩu</div>
+                <div className="bg-transparent backdrop-blur-sm border border-white/20 rounded-lg p-4 transition-all duration-500 hover:shadow-lg hover:shadow-pink-400/10">
+                  <div className="text-2xl font-bold mb-1 bg-gradient-to-r from-pink-400 via-yellow-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x" style={{ animationDelay: '1s' }}>EU</div>
+                  <div className="text-white text-xs font-medium">Thị trường xuất khẩu</div>
                 </div>
               </motion.div>
             </div>

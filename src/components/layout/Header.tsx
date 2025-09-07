@@ -41,7 +41,7 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-gray-900 hover:bg-gradient-to-r hover:from-purple-500/20 hover:via-pink-500/20 hover:to-purple-600/20 p-2 rounded-lg text-gold hover:text-purple-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30"
+            className="md:hidden inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-gray-900 hover:bg-gradient-to-r hover:from-yellow-400/20 hover:via-purple-500/20 hover:to-pink-500/20 p-2 rounded-lg text-white hover:text-yellow-400 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/30 bg-gray-800/50 border border-yellow-400/30"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >

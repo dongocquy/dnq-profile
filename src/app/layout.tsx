@@ -7,7 +7,7 @@ import BackToTop from '@/components/ui/BackToTop'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
   
   return {

@@ -281,20 +281,20 @@ export default function ProjectsPage() {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-20"
       >
-        <div className="flex justify-center">
-          <div className="flex space-x-2 bg-transparent backdrop-blur-sm border border-white/10 backdrop-blur-sm rounded-2xl p-2 relative z-20">
+        <div className="flex justify-center px-2">
+          <div className="flex flex-wrap justify-center gap-1 sm:gap-2 bg-transparent backdrop-blur-sm border border-white/10 backdrop-blur-sm rounded-2xl p-1 sm:p-2 relative z-20 w-full max-w-4xl">
             {categories.map((category) => (
               <button
                 key={category.key}
                 onClick={() => setSelectedCategory(category.key)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 ${
+                className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 cursor-pointer relative z-10 text-sm sm:text-sm lg:text-base whitespace-nowrap ${
                   selectedCategory === category.key
                     ? 'bg-gradient-to-r from-yellow-400 to-purple-500 text-gray-900 shadow-lg shadow-yellow-400/25'
                     : 'text-gray-400 hover:text-white hover:bg-transparent backdrop-blur-sm border border-white/10'
                 }`}
               >
-                {category.icon}
-                <span>{category.label}</span>
+                <span className="text-base sm:text-lg">{category.icon}</span>
+                <span className="text-sm sm:text-sm lg:text-base">{category.label}</span>
               </button>
             ))}
           </div>
@@ -308,7 +308,7 @@ export default function ProjectsPage() {
         animate="visible"
         className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 relative z-10"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -328,7 +328,7 @@ export default function ProjectsPage() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Project Card */}
-                <div className="relative bg-transparent backdrop-blur-sm border border-white/20 rounded-lg overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 max-w-sm mx-auto hover-lift animate-parallax-float hover-glow">
+                <div className="relative bg-transparent backdrop-blur-sm border border-white/20 rounded-lg overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-yellow-400/10 w-full mx-auto hover-lift animate-parallax-float hover-glow">
                   {/* Featured Badge */}
                   {project.featured && (
                     <div className="absolute top-2 left-2 z-10">
@@ -354,7 +354,7 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Project Image */}
-                  <div className="relative h-28 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+                  <div className="relative h-24 sm:h-28 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-3xl text-gray-600 group-hover:text-yellow-400 transition-colors duration-300">
@@ -367,7 +367,7 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Project Content */}
-                  <div className="p-3">
+                  <div className="p-2.5 sm:p-3">
                     {/* Year */}
                     <div className="text-xs text-gray-500 mb-1">{project.year}</div>
                     
@@ -426,7 +426,7 @@ export default function ProjectsPage() {
                     )}
 
                     {/* Action Buttons */}
-                    <div className="flex space-x-1.5">
+                    <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1.5">
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}

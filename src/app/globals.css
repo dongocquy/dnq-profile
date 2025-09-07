@@ -185,16 +185,21 @@ html {
   transform: translateX(-50%);
 }
 
-/* Responsive timeline for mobile */
+/* Mobile timeline adjustments */
 @media (max-width: 768px) {
   .timeline-line {
-    left: 2rem;
-    width: 3px;
+    width: 8px;
+    background: linear-gradient(to bottom, #ff0000, #00ff00, #0000ff);
+    left: 1%;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
   }
-  
-  /* Override card positioning on mobile */
+}
+
+/* Override card positioning on mobile */
+@media (max-width: 768px) {
   .timeline-card {
-    margin-left: 4rem !important;
+    margin-left: 1rem !important;
     margin-right: 0 !important;
   }
 }

@@ -60,6 +60,10 @@ const config: Config = {
         'ombre-color-shift': 'ombreColorShift 2s ease-in-out infinite',
         'ripple-wave': 'rippleWave 0.8s ease-out',
         'mobile-bounce': 'mobileBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        'floating-particles': 'floatingParticles 6s ease-in-out infinite',
+        'luxury-glow': 'luxuryGlow 3s ease-in-out infinite',
+        'luxury-pulse': 'luxuryPulse 2s ease-in-out infinite',
+        'gradient-x': 'gradientX 3s ease-in-out infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -193,6 +197,50 @@ const config: Config = {
           '100%': {
             transform: 'scale(1)',
             opacity: '1',
+          },
+        },
+        floatingParticles: {
+          '0%, 100%': {
+            transform: 'translateY(0px) translateX(0px)',
+            opacity: '0.3',
+          },
+          '25%': {
+            transform: 'translateY(-10px) translateX(5px)',
+            opacity: '0.6',
+          },
+          '50%': {
+            transform: 'translateY(-5px) translateX(-3px)',
+            opacity: '0.8',
+          },
+          '75%': {
+            transform: 'translateY(-15px) translateX(2px)',
+            opacity: '0.4',
+          },
+        },
+        luxuryGlow: {
+          '0%, 100%': {
+            textShadow: '0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3)',
+          },
+          '50%': {
+            textShadow: '0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.3)',
+          },
+        },
+        luxuryPulse: {
+          '0%, 100%': {
+            transform: 'scale(1)',
+            opacity: '1',
+          },
+          '50%': {
+            transform: 'scale(1.02)',
+            opacity: '0.9',
+          },
+        },
+        gradientX: {
+          '0%, 100%': {
+            backgroundPosition: '0% 50%',
+          },
+          '50%': {
+            backgroundPosition: '100% 50%',
           },
         },
       },
