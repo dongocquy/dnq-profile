@@ -143,3 +143,4 @@ Dự án này được phân phối dưới MIT License. Xem `LICENSE` để bi�
 # Trigger deployment
 # Trigger deployment with GitHub Pages enabled
 # Trigger deployment without protection rules
+# Trigger deployment with master branch configured
