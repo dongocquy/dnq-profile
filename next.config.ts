@@ -2,7 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'export',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     domains: ['dnq-profile.vercel.app', 'localhost'],
     formats: ['image/webp', 'image/avif'],
   },
@@ -61,7 +64,6 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  trailingSlash: false,
 };
 
 export default nextConfig;
